@@ -1,3 +1,4 @@
+from contextvars import Context
 import json
 import bcrypt
 
@@ -11,20 +12,20 @@ from boards.models import Board
 class CreateView(View):
     def post(self, request):
         try:
-            data = json.loads(request.body)
+            data    = json.loads(request.body)
 
-            title = data['title']
-            content = data['content']
-            passwd = data['passwd']
+            title   = data['title']
+            context = data['context']
+            passwd  = data['passwd']
 
             validate_password(passwd)
 
             hashed_password  = bcrypt.hashpw(passwd.encode('utf-8'), bcrypt.gensalt())
             
             Board.objects.create(
-                title = title,
-                content = content,
-                passwd = hashed_password.decode('utf-8')
+                title   = title,
+                context = context,
+                passwd  = hashed_password.decode('utf-8')
             )
 
             return JsonResponse({'message' : 'success'}, status = 201)
