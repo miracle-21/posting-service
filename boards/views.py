@@ -31,3 +31,15 @@ class CreateView(View):
             return JsonResponse({'message' : 'success'}, status = 201)
         except ValidationError as error:
             return JsonResponse({'message' : error.message}, status = 400)
+
+class DeleteView(View):
+    def delete(self, request, id):
+        data = json.loads(request.body)
+
+        board = Board.objects.get(id=id)
+
+        if not bcrypt.checkpw(data['passwd'].encode('utf-8'), board.passwd.encode('utf-8')):
+            return JsonResponse({'message' : 'invalid password'}, status = 401)
+        else:
+            board.delete()
+            return JsonResponse({'message' : 'success'}, status = 200)
