@@ -43,3 +43,25 @@ class DeleteView(View):
         else:
             board.delete()
             return JsonResponse({'message' : 'success'}, status = 200)
+
+
+class UpdateView(View):
+    def patch(self, request, id):
+        data = json.loads(request.body)
+        board = Board.objects.get(id=id)
+
+        if not bcrypt.checkpw(data['passwd'].encode('utf-8'), board.passwd.encode('utf-8')):
+            return JsonResponse({'message' : 'invalid password'}, status = 401)
+        else:
+            data = json.loads(request.body)
+            
+            board = Board.objects.get(id=id)
+
+            if 'title' in data.keys():
+                board.title = data['title']
+            if 'content' in data.keys():
+                board.context = data['context']
+            
+            board.save()
+
+            return JsonResponse({'message' : 'success'}, status = 200)
