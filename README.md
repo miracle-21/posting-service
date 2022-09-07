@@ -54,5 +54,5 @@ Language | Framwork | Database | HTTP | Tools
 ## 🔖 API 명세서
 - [postman API 링크](https://documenter.getpostman.com/view/18832289/VVBQYVMs)
 
+![](https://velog.velcdn.com/images/miracle-21/post/dc414f01-1ab9-4a2a-950e-d4e186348592/image.gif)
 
-![](https://velog.velcdn.com/images/miracle-21/post/2d6b01cf-ce7d-4a3d-95fa-89fad9c628e1/image.png)
