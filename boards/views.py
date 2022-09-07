@@ -72,7 +72,7 @@ class GetView(View):
         offset = int(request.GET.get('offset', 0))
         limit  = int(request.GET.get('limit', 20))
 
-        boards = Board.objects.all().order_by('created_at')[offset:offset+limit]
+        boards = Board.objects.all().order_by('-created_at')[offset:offset+limit]
         results = [
             {
                 'id' : board.id,
