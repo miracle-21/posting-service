@@ -52,4 +52,4 @@ Language | Framwork | Database | HTTP | Tools
 ![](https://velog.velcdn.com/images/miracle-21/post/c5922cbf-f5ad-43fb-8cc1-418cf6c6c7a8/image.png)
 
 ## 🔖 API 명세서
-- postman API
+- [postman API](https://documenter.getpostman.com/view/18832289/VVBQYVMs)
