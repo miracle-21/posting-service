@@ -33,6 +33,7 @@
 
 3. 게시물 정렬
     - 모든 사용자는 한 페이지 내에서 모든 게시물을 최신 글 순서로 확인 가능
+    - 20개 단위로 로드
 
 ## 🛠 기술 스택
 Language | Framwork | Database | HTTP | Tools
@@ -41,10 +42,11 @@ Language | Framwork | Database | HTTP | Tools
 
 ## 🎯 API Endpoints
 | endpoint | HTTP Method | 기능 | require parameter | response data |
-|----------|-------------|------|-------------------|---------------|
-|          |             |      |                   |               |
-|          |             |      |                   |               |
-|          |             |      |                   |               |
+|----------|-------------|------|-------------------|---------------| 
+|boards/ | GET  | 게시물 리스트 조회 | | 200 OK 
+| /boards/post|  POST | 게시물 생성  |title: string </br> context: string  </br> passwd: string| 201 Created </br> 400 Bad Request |
+| /boards/delete/:id | DELETE  | 게시물 삭제 |   passwd: string  | 200 OK </br> 401 Unauthorized |
+| /boards/update/:id | PATCH | 게시물 수정 | title: string </br> context: string  </br> passwd: string | 200 OK 
 
 ## 📚 ERD
 ![](https://velog.velcdn.com/images/miracle-21/post/c5922cbf-f5ad-43fb-8cc1-418cf6c6c7a8/image.png)
