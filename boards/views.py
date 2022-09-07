@@ -59,7 +59,7 @@ class UpdateView(View):
 
             if 'title' in data.keys():
                 board.title = data['title']
-            if 'content' in data.keys():
+            if 'context' in data.keys():
                 board.context = data['context']
             
             board.save()
