@@ -65,3 +65,19 @@ class UpdateView(View):
             board.save()
 
             return JsonResponse({'message' : 'success'}, status = 200)
+
+class GetView(View):
+    def get(self, request):
+
+        offset = int(request.GET.get('offset', 0))
+        limit  = int(request.GET.get('limit', 20))
+
+        boards = Board.objects.all().order_by('created_at')[offset:offset+limit]
+        results = [
+            {
+                'id' : board.id,
+                'title' : board.title,
+                'context' : board.context
+            } for board in boards
+        ]
+        return JsonResponse({'results' : results}, status = 200)
