@@ -7,4 +7,4 @@ PASSWORD_REGEX = '(?=.*\d)[A-Za-z\d$@^!%*#?&]{6,}$'
 
 def validate_password(value):
     if not re.match(PASSWORD_REGEX,value):
-        raise ValidationError('Invalid Password')
+        raise ValidationError('invalid password')
