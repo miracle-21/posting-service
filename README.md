@@ -43,7 +43,7 @@ Language | Framework | Database | HTTP | Tools
 ## 🎯 API Endpoints
 | endpoint | HTTP Method | 기능 | require parameter | response data |
 |----------|-------------|------|-------------------|---------------| 
-|boards/ | GET  | 게시물 리스트 조회 | | 200 OK 
+|/boards | GET  | 게시물 리스트 조회 | | 200 OK 
 | /boards/post|  POST | 게시물 생성  |title: string </br> context: string  </br> passwd: string| 201 Created </br> 400 Bad Request |
 | /boards/delete/:id | DELETE  | 게시물 삭제 |   passwd: string  | 200 OK </br> 401 Unauthorized |
 | /boards/update/:id | PATCH | 게시물 수정 | title: string </br> context: string  </br> passwd: string | 200 OK </br> 401 Unauthorized
